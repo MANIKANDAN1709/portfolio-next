@@ -14,16 +14,19 @@ export default function Home() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#home">Home</NavigationMenuLink>
+                <NavigationMenuLink href="/">Home</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#about">About</NavigationMenuLink>
+                <NavigationMenuLink href="/about">About</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#contact">Contact</NavigationMenuLink>
+                <NavigationMenuLink href="/skills">Skills</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#projects">Projects</NavigationMenuLink>
+                <NavigationMenuLink href="/contact">Contact</NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
