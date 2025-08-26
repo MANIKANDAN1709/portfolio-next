@@ -4,6 +4,14 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ModeToggle } from "@/components/theme-toogle";
+import {
+    NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 
 const geistSans = Geist({
@@ -37,6 +45,37 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+        <div className="flex h-16 items-center justify-between px-4 max-w-7xl mx-auto w-full">
+          <div className="flex items-center gap-4">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/">
+                    <Avatar>
+                      <AvatarImage src="#" />
+                      <AvatarFallback>MS</AvatarFallback>
+                    </Avatar>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/about">About</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/skills">Skills</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/contact">Contact</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+          <ModeToggle/>
+        </div>
+      </header>
 
         {children}
         <Analytics />
