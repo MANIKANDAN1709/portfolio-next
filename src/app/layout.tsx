@@ -70,6 +70,9 @@ export default function RootLayout({
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/blogs">Blogs</NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
