@@ -73,6 +73,12 @@ export default function RootLayout({
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/blogs">Blogs</NavigationMenuLink>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/favorities">Favorities</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/roadmap">Roadmap</NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
