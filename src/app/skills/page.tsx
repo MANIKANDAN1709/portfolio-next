@@ -95,6 +95,13 @@ export default function Skills() {
                       <Badge size="sm" variant="outline">Maestro</Badge>
                     </div>
                   </div>
+                  <div>
+                    <p className="font-medium text-sm mb-2">Performance Testing</p>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge size="sm">K6</Badge>
+                      <Badge size="sm" variant="outline">Locust</Badge>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
