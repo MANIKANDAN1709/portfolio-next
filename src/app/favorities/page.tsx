@@ -3,23 +3,57 @@ export default function Favorities() {
       {
         name: "Fireship",
         description: "High-intensity ⚡  tech news",
-        category: "Programming"
+        category: "Programming",
+        url: "https://www.youtube.com/@Fireship"
       },
       {
         name: "3Blue1Brown",
         description: "AI and Machine Learning with visual storytelling",
-        category: "Education",
+        category: "Programming",
+        url: "https://www.youtube.com/@3blue1brown"
       },
       {
-        name: "Theo - t3․gg",
+        name: "Theo - t3.gg",
         description: "Web development, React, and tech takes",
         category: "Programming",
+        url: "https://www.youtube.com/@t3dotgg"
       },
       {
         name: "Web Dev Simplified",
         description: "Making web development simple and accessible",
         category: "Programming",
-      }
+        url: "https://www.youtube.com/@WebDevSimplified"
+      },
+      {
+        name: "Ankita Kulkarni",
+        description: "Sass Product Development",
+        category: "Product Development",
+        url: "https://www.youtube.com/@Kulkarniankita"
+      },
+      {
+        name: "Sriniously",
+        description: "Backend development",
+        category: "Programming",
+        url: "https://www.youtube.com/@sriniously"
+      },
+      {
+        name: "Sanjeev NC - Tamil",
+        description: "Sass product development",
+        category: "Product Development",
+        url: "https://www.youtube.com/@sanjeevnctamil"
+      },
+      {
+        name: "Finance Boosan",
+        description: "Finance and investment",
+        category: "Finance",
+        url: "https://www.youtube.com/@finance.boosan"
+      },
+      {
+       name: "Hitesh Choudhary",
+       description: "Full Stack Developer",
+       category: "Programming",
+       url: "https://www.youtube.com/@HiteshCodeLab"
+      },
     ];
 
     return (
@@ -36,9 +70,12 @@ export default function Favorities() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {favoriteChannels.map((channel, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-card text-card-foreground rounded-lg border shadow-sm hover:shadow-md transition-shadow duration-200 p-6"
+                href={channel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-card text-card-foreground rounded-lg border shadow-sm hover:shadow-md transition-all duration-200 p-6 hover:scale-105 cursor-pointer"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -57,7 +94,7 @@ export default function Favorities() {
                     {channel.description}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           
