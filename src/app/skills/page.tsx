@@ -337,6 +337,82 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Video Editor */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl">Video Editing</CardTitle>
+                    <Badge variant="secondary">Video</Badge>
+                  </div>
+                  <CardDescription>Video production & post-production editing</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Adobe Premiere Pro</span>
+                      <span className="text-muted-foreground">35%</span>
+                    </div>
+                    <Progress value={35} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">DaVinci Resolve</span>
+                      <span className="text-muted-foreground">25%</span>
+                    </div>
+                    <Progress value={25} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">CapCut</span>
+                      <span className="text-muted-foreground">20%</span>
+                    </div>
+                    <Progress value={20} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Final Cut Pro</span>
+                      <span className="text-muted-foreground">12%</span>
+                    </div>
+                    <Progress value={12} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">After Effects</span>
+                      <span className="text-muted-foreground">8%</span>
+                    </div>
+                    <Progress value={8} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Avid Media Composer</span>
+                      <span className="text-muted-foreground">5%</span>
+                    </div>
+                    <Progress value={5} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Camtasia</span>
+                      <span className="text-muted-foreground">4%</span>
+                    </div>
+                    <Progress value={4} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">InShot</span>
+                      <span className="text-muted-foreground">3%</span>
+                    </div>
+                    <Progress value={3} className="h-2" />
+                  </div>
+                </CardContent>
+              </Card>
             </div>
       </main>
     </div>
