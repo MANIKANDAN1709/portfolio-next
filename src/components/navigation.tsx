@@ -1,6 +1,12 @@
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu"
 import Link from "next/link"
 
 export default function Navigation() {
@@ -24,71 +30,69 @@ export default function Navigation() {
               <span className="font-semibold">Portfolio</span>
             </Link>
             <div className="grid gap-2 py-6">
-              <Link href="/" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Home
               </Link>
-              <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/about" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 About
               </Link>
-              <Link href="/projects" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/projects" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Projects
               </Link>
-              <Link href="/skills" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/skills" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Skills
               </Link>
-              <Link href="/blogs" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/blogs" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Blogs
               </Link>
-              <Link href="/favorities" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/favorities" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Favorites
               </Link>
-              <Link href="/roadmap" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/roadmap" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Roadmap
               </Link>
-              <Link href="/contact" className="flex w-full items-center py-2 text-lg font-semibold hover:text-primary" prefetch={false}>
+              <Link href="/contact" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Contact
               </Link>
             </div>
           </SheetContent>
         </Sheet>
 
-        {/* Desktop logo */}
-        <Link href="/" className="hidden lg:flex items-center gap-2" prefetch={false}>
-          <Avatar>
-            <AvatarImage src="#" />
-            <AvatarFallback>MS</AvatarFallback>
-          </Avatar>
-          <span className="sr-only">Portfolio</span>
-        </Link>
+        {/* Desktop navigation - using NavigationMenu like before */}
+        <NavigationMenu className="hidden lg:flex">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/">
+                <Avatar>
+                  <AvatarImage src="#" />
+                  <AvatarFallback>MS</AvatarFallback>
+                </Avatar>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/about">About</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/skills">Skills</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/contact">Contact</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/blogs">Blogs</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/favorities">Favorities</NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/roadmap">Roadmap</NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
-
-      {/* Desktop navigation */}
-      <nav className="hidden lg:flex items-center gap-6">
-        <Link href="/" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Home
-        </Link>
-        <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          About
-        </Link>
-        <Link href="/projects" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Projects
-        </Link>
-        <Link href="/skills" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Skills
-        </Link>
-        <Link href="/blogs" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Blogs
-        </Link>
-        <Link href="/favorities" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Favorites
-        </Link>
-        <Link href="/roadmap" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Roadmap
-        </Link>
-        <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" prefetch={false}>
-          Contact
-        </Link>
-      </nav>
     </div>
   )
 }
