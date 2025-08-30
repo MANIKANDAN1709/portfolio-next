@@ -35,7 +35,7 @@ export default function Contact() {
       await new Promise(resolve => setTimeout(resolve, 1000))
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -77,8 +77,8 @@ export default function Contact() {
             Get In Touch
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you. 
-            Send me a message and let's discuss how we can work together.
+            Have a project in mind or want to collaborate? I&apos;d love to hear from you. 
+            Send me a message and let&apos;s discuss how we can work together.
           </p>
         </div>
 
@@ -144,7 +144,7 @@ export default function Contact() {
                 {submitStatus === 'success' && (
                   <div className="p-4 bg-green-50 border border-green-200 rounded-md">
                     <p className="text-green-700 text-sm">
-                      ✅ Message sent successfully! I'll get back to you soon.
+                      ✅ Message sent successfully! I&apos;ll get back to you soon.
                     </p>
                   </div>
                 )}
@@ -199,7 +199,7 @@ export default function Contact() {
 
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-xl">Let's Connect</CardTitle>
+                <CardTitle className="text-xl">Let&apos;s Connect</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4 text-sm text-muted-foreground">
