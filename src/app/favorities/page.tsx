@@ -1,3 +1,8 @@
+'use client'
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+
 export default function Favorities() {
     const favoriteChannels = [
       {
@@ -56,6 +61,16 @@ export default function Favorities() {
       },
     ];
 
+    const [selectedCategory, setSelectedCategory] = useState<string>("All")
+    
+    // Get unique categories
+    const categories = ["All", ...Array.from(new Set(favoriteChannels.map(channel => channel.category)))]
+    
+    // Filter channels based on selected category
+    const filteredChannels = selectedCategory === "All" 
+      ? favoriteChannels 
+      : favoriteChannels.filter(channel => channel.category === selectedCategory)
+
     return (
       <div className="font-sans min-h-screen bg-background">
         <main className="max-w-7xl mx-auto px-4 py-12">
@@ -68,8 +83,34 @@ export default function Favorities() {
             </p>
           </div>
           
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(category)}
+                className="transition-all duration-200"
+              >
+                {category}
+                {category !== "All" && (
+                  <span className="ml-2 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full">
+                    {favoriteChannels.filter(channel => channel.category === category).length}
+                  </span>
+                )}
+                {category === "All" && (
+                  <span className="ml-2 bg-muted text-muted-foreground text-xs px-1.5 py-0.5 rounded-full">
+                    {favoriteChannels.length}
+                  </span>
+                )}
+              </Button>
+            ))}
+          </div>
+          
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {favoriteChannels.map((channel, index) => (
+            {filteredChannels.map((channel, index) => (
               <a
                 key={index}
                 href={channel.url}
