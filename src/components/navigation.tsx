@@ -48,9 +48,6 @@ export default function Navigation() {
               <Link href="/favorities" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Favorites
               </Link>
-              <Link href="/roadmap" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
-                Roadmap
-              </Link>
               <Link href="/contact" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
                 Contact
               </Link>
@@ -86,9 +83,6 @@ export default function Navigation() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink href="/favorities">Favorities</NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/roadmap">Roadmap</NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

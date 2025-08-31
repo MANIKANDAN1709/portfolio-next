@@ -4,17 +4,121 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 
 export default function Skills() {
+  const roadmapItems = [
+    {
+      category: "Frontend Development",
+      color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+      items: [
+        {
+          title: "Advanced React Patterns",
+          description: "Master advanced React patterns like render props, higher-order components, and compound components",
+          status: "completed",
+          progress: 100,
+          timeline: "Q4 2024"
+        },
+        {
+          title: "Next.js 15 Features",
+          description: "Explore the latest Next.js features including App Router, Server Components, and new performance optimizations",
+          status: "in-progress",
+          progress: 75,
+          timeline: "Q1 2025"
+        },
+        {
+          title: "Micro-frontends Architecture",
+          description: "Learn to build and maintain scalable micro-frontend applications using Module Federation",
+          status: "planned",
+          progress: 0,
+          timeline: "Q2 2025"
+        }
+      ]
+    },
+    {
+      category: "Backend Development",
+      color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
+      items: [
+        {
+          title: "GraphQL & Apollo Server",
+          description: "Build robust GraphQL APIs with Apollo Server, including subscriptions and federation",
+          status: "in-progress",
+          progress: 60,
+          timeline: "Q1 2025"
+        },
+        {
+          title: "Microservices with Docker",
+          description: "Design and deploy microservices architecture using Docker containers and Kubernetes orchestration",
+          status: "planned",
+          progress: 20,
+          timeline: "Q2 2025"
+        }
+      ]
+    },
+    {
+      category: "Cloud & DevOps",
+      color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
+      items: [
+        {
+          title: "AWS Solutions Architect",
+          description: "Achieve AWS Solutions Architect certification and master cloud architecture patterns",
+          status: "in-progress",
+          progress: 45,
+          timeline: "Q2 2025"
+        },
+        {
+          title: "Infrastructure as Code",
+          description: "Master Terraform and AWS CDK for automated infrastructure provisioning and management",
+          status: "planned",
+          progress: 15,
+          timeline: "Q3 2025"
+        }
+      ]
+    }
+  ]
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "completed":
+        return "✅"
+      case "in-progress":
+        return "🔄"
+      case "planned":
+        return "📅"
+      default:
+        return "📋"
+    }
+  }
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "completed":
+        return "text-green-600 dark:text-green-400"
+      case "in-progress":
+        return "text-blue-600 dark:text-blue-400"
+      case "planned":
+        return "text-gray-600 dark:text-gray-400"
+      default:
+        return "text-gray-600 dark:text-gray-400"
+    }
+  }
+
   return (
     <div className="font-sans min-h-screen">    
       <main className="max-w-7xl mx-auto px-4 py-12">
+        {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Skills & Expertise
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Skills & Learning Journey
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills across different domains
+            My technical expertise across different domains and continuous learning roadmap for professional growth
           </p>
         </div>
+
+        {/* Skills Section */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <h2 className="text-2xl font-bold text-foreground">Current Skills & Expertise</h2>
+            <Badge className="bg-primary/10 text-primary">Active</Badge>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Frontend */}
@@ -414,6 +518,64 @@ export default function Skills() {
                 </CardContent>
               </Card>
             </div>
+        </section>
+
+        {/* Learning Roadmap Section */}
+        <section className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <h2 className="text-2xl font-bold text-foreground">Learning Roadmap</h2>
+            <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300">Future Growth</Badge>
+          </div>
+
+          <div className="space-y-8">
+            {roadmapItems.map((category, categoryIndex) => (
+              <div key={categoryIndex} className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Badge className={category.color}>{category.category}</Badge>
+                  <div className="h-px bg-border flex-1" />
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {category.items.map((item, itemIndex) => (
+                    <Card key={itemIndex} className="hover:shadow-md transition-shadow">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <span className="text-lg">{getStatusIcon(item.status)}</span>
+                              <CardTitle className="text-lg leading-tight">{item.title}</CardTitle>
+                            </div>
+                            <div className="flex items-center gap-2 mt-1">
+                              <Badge 
+                                variant="outline" 
+                                className={`text-xs ${getStatusColor(item.status)}`}
+                              >
+                                {item.status.charAt(0).toUpperCase() + item.status.slice(1).replace('-', ' ')}
+                              </Badge>
+                              <span className="text-xs text-muted-foreground">{item.timeline}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <CardDescription className="text-sm leading-relaxed mt-2">
+                          {item.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="pt-0">
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span className="font-medium">Progress</span>
+                            <span className="text-muted-foreground">{item.progress}%</span>
+                          </div>
+                          <Progress value={item.progress} className="h-2" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
