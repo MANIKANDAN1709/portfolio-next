@@ -137,7 +137,7 @@ export default function Blogs() {
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-8">
               <h2 className="text-2xl font-bold text-foreground">Featured Posts</h2>
-              <Badge className="bg-primary/10 text-primary">Editor's Choice</Badge>
+              <Badge className="bg-primary/10 text-primary">Editor&apos;s Choice</Badge>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
