@@ -42,10 +42,22 @@ export default function Favorities() {
         url: "https://www.youtube.com/@sriniously"
       },
       {
-        name: "Sanjeev NC - Tamil",
+        name: "Keerti Purswani",
+        description: "AI & ML applications development",
+        category: "Programming",
+        url: "https://www.youtube.com/@KeertiPurswani"
+      },
+      {
+        name: "Sanjeev NC",
         description: "Sass product development",
         category: "Product Development",
         url: "https://www.youtube.com/@sanjeevnctamil"
+      },
+      {
+        name: "Marc-Lou",
+        description: "Sass product development",
+        category: "Product Development",
+        url: "https://www.youtube.com/@marc-lou"
       },
       {
         name: "Finance Boosan",
