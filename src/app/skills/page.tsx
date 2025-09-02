@@ -517,6 +517,50 @@ export default function Skills() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Design */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-xl">Design</CardTitle>
+                    <Badge variant="secondary">UX/UI</Badge>
+                  </div>
+                  <CardDescription>User interface & user experience design</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Figma</span>
+                      <span className="text-muted-foreground">45%</span>
+                    </div>
+                    <Progress value={45} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Adobe XD</span>
+                      <span className="text-muted-foreground">35%</span>
+                    </div>
+                    <Progress value={35} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Sketch</span>
+                      <span className="text-muted-foreground">30%</span>
+                    </div>
+                    <Progress value={30} className="h-2" />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium">Wireframing</span>
+                      <span className="text-muted-foreground">25%</span>
+                    </div>
+                    <Progress value={25} className="h-2" />
+                  </div>
+                </CardContent>
+              </Card>
             </div>
         </section>
 

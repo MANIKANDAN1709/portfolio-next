@@ -42,6 +42,12 @@ export default function Favorities() {
         url: "https://www.youtube.com/@sriniously"
       },
       {
+        name: "Adi Ravi",
+        description: "Sass product development",
+        category: "Product Development",
+        url: "https://www.youtube.com/@adiiravi"
+      },
+      {
         name: "Keerti Purswani",
         description: "AI & ML applications development",
         category: "Programming",
