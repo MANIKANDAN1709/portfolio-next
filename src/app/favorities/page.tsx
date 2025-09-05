@@ -90,6 +90,18 @@ export default function Favorities() {
        category: "Programming",
        url: "https://www.youtube.com/@HiteshCodeLab"
       },
+      {
+        name: "Gurleen Kaur Tikku",
+        description: "Insurance and financial planning",
+        category: "Insurance",
+        url: "https://www.youtube.com/@GurleenKaurTikku"
+       },
+       {
+        name: "Ditto Insurance",
+        description: "Insurance and financial planning courses",
+        category: "Insurance",
+        url: "https://www.youtube.com/@dittoinsurance"
+       },
     ];
 
     const [selectedCategory, setSelectedCategory] = useState<string>("All")
