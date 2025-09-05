@@ -77,6 +77,13 @@ export default function Favorities() {
         category: "Finance",
         url: "https://www.youtube.com/@finance.boosan"
       },
+      
+    {
+      name: "Zero1 by Zerodha",
+      description: "Finance and investment courses",
+      category: "Finance",
+      url: "https://www.youtube.com/@Zero1byZerodha"
+    }, 
       {
        name: "Hitesh Choudhary",
        description: "Full Stack Developer",
