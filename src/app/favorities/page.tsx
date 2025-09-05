@@ -30,6 +30,12 @@ export default function Favorities() {
         url: "https://www.youtube.com/@WebDevSimplified"
       },
       {
+        name: "Techy Tacos",
+        description: "Tutorials on various programming languages and technologies.",
+        category: "Programming",
+        url: "https://www.youtube.com/@TechyTacos/playlists"
+      },
+      {
         name: "Ankita Kulkarni",
         description: "Sass Product Development",
         category: "Product Development",
