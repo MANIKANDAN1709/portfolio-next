@@ -60,6 +60,12 @@ export default function Favorities() {
         url: "https://www.youtube.com/@KeertiPurswani"
       },
       {
+        name: "TechWorld with Nana",
+        description: "DevOps and Cloud Skills",
+        category: "Programming",
+        url: "https://www.youtube.com/@TechWorldwithNana"
+      },
+      {
         name: "Sanjeev NC",
         description: "Sass product development",
         category: "Product Development",
