@@ -1,3 +1,5 @@
+"use client"
+
 import posthog from 'posthog-js'
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
