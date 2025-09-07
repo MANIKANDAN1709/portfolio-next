@@ -1,5 +1,6 @@
 'use client';
 
+import posthog from 'posthog-js';
 import type { PutBlobResult } from '@vercel/blob';
 import { useState, useRef } from 'react';
 
@@ -19,6 +20,12 @@ export default function AvatarUploadPage() {
           }
 
           const file = inputFileRef.current.files[0];
+
+          posthog.capture('avatar_upload_submitted', {
+            file_name: file.name,
+            file_size: file.size,
+            file_type: file.type,
+          });
 
           const response = await fetch(
             `/api/avatar/upload?filename=${file.name}`,

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import posthog from 'posthog-js'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -25,13 +26,22 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => {
+          posthog.capture('theme_changed', { theme: 'light' })
+          setTheme("light")
+        }}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={() => {
+          posthog.capture('theme_changed', { theme: 'dark' })
+          setTheme("dark")
+        }}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={() => {
+          posthog.capture('theme_changed', { theme: 'system' })
+          setTheme("system")
+        }}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import posthog from 'posthog-js'
 
 export default function Blogs() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
@@ -119,7 +120,10 @@ export default function Blogs() {
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category)
+                posthog.capture('blog_category_filtered', { category: category })
+              }}
               className="relative"
             >
               {category}
@@ -172,7 +176,7 @@ export default function Blogs() {
                         <span>{post.publishDate}</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <Button className="w-full" size="sm">
+                      <Button className="w-full" size="sm" onClick={() => posthog.capture('blog_article_clicked', { post_id: post.id, post_title: post.title, location: 'featured_section' })}>
                         Read Full Article →
                       </Button>
                     </div>
@@ -227,7 +231,7 @@ export default function Blogs() {
                         <span>{post.publishDate}</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <Button variant="outline" className="w-full" size="sm">
+                      <Button variant="outline" className="w-full" size="sm" onClick={() => posthog.capture('blog_article_clicked', { post_id: post.id, post_title: post.title, location: 'regular_section' })}>
                         Read More →
                       </Button>
                     </div>
@@ -262,7 +266,7 @@ export default function Blogs() {
                     placeholder="Enter your email"
                     className="flex-1 px-4 py-2 rounded-md border border-border bg-background text-sm"
                   />
-                  <Button size="sm">Subscribe</Button>
+                  <Button size="sm" onClick={() => posthog.capture('newsletter_subscribe_clicked')}>Subscribe</Button>
                 </div>
                 <p className="text-xs text-muted-foreground">
                   No spam, unsubscribe at any time.

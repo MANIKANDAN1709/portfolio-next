@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
+import posthog from 'posthog-js'
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -68,6 +69,17 @@ function DropdownMenuItem({
   inset?: boolean
   variant?: "default" | "destructive"
 }) {
+  const { onSelect, ...restProps } = props
+
+  const handleSelect = (event: Event) => {
+    const element = event.currentTarget as HTMLElement
+    posthog.capture("dropdown_menu_item_selected", {
+      variant: variant,
+      item_text: element.textContent?.trim() || "unknown",
+    })
+    onSelect?.(event)
+  }
+
   return (
     <DropdownMenuPrimitive.Item
       data-slot="dropdown-menu-item"
@@ -77,7 +89,8 @@ function DropdownMenuItem({
         "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
-      {...props}
+      {...restProps}
+      onSelect={handleSelect}
     />
   )
 }
@@ -88,6 +101,17 @@ function DropdownMenuCheckboxItem({
   checked,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
+  const { onSelect, ...restProps } = props
+
+  const handleSelect = (event: Event) => {
+    const element = event.currentTarget as HTMLElement
+    posthog.capture("dropdown_menu_checkbox_item_toggled", {
+      item_text: element.textContent?.trim() || "unknown",
+      checked: !checked,
+    })
+    onSelect?.(event)
+  }
+
   return (
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
@@ -96,7 +120,8 @@ function DropdownMenuCheckboxItem({
         className
       )}
       checked={checked}
-      {...props}
+      {...restProps}
+      onSelect={handleSelect}
     >
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>

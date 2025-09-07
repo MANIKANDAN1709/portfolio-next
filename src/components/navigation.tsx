@@ -1,3 +1,4 @@
+import posthog from 'posthog-js'
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -16,13 +17,13 @@ export default function Navigation() {
       <div className="flex items-center gap-4">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
+            <Button variant="outline" size="icon" className="lg:hidden" onClick={() => posthog.capture('mobile-nav-opened')}>
               <MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left">
-            <Link href="/" className="mb-6 flex items-center gap-2" prefetch={false}>
+            <Link href="/" className="mb-6 flex items-center gap-2" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/', location: 'mobile-header' })}>
               <Avatar>
                 <AvatarImage src="#" />
                 <AvatarFallback>MS</AvatarFallback>
@@ -30,22 +31,22 @@ export default function Navigation() {
               <span className="font-semibold">Portfolio</span>
             </Link>
             <div className="grid gap-2 py-6">
-              <Link href="/" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/', location: 'mobile' })}>
                 Home
               </Link>
-              <Link href="/about" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/about" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/about', location: 'mobile' })}>
                 About
               </Link>
-              <Link href="/projects" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/projects" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/projects', location: 'mobile' })}>
                 Projects
               </Link>
-              <Link href="/skills" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/skills" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/skills', location: 'mobile' })}>
                 Skills
               </Link>
-              <Link href="/blogs" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/blogs" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/blogs', location: 'mobile' })}>
                 Blogs
               </Link>
-              <Link href="/favorities" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false}>
+              <Link href="/favorities" className="flex w-full items-center py-3 px-4 text-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all rounded-md" prefetch={false} onClick={() => posthog.capture('nav-link-clicked', { destination: '/favorities', location: 'mobile' })}>
                 Favorites
               </Link>
             </div>
@@ -56,7 +57,7 @@ export default function Navigation() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/">
+              <NavigationMenuLink href="/" onClick={() => posthog.capture('nav-link-clicked', { destination: '/', location: 'desktop' })}>
                 <Avatar>
                   <AvatarImage src="#" />
                   <AvatarFallback>MS</AvatarFallback>
@@ -64,19 +65,19 @@ export default function Navigation() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/about">About</NavigationMenuLink>
+              <NavigationMenuLink href="/about" onClick={() => posthog.capture('nav-link-clicked', { destination: '/about', location: 'desktop' })}>About</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/skills">Skills</NavigationMenuLink>
+              <NavigationMenuLink href="/skills" onClick={() => posthog.capture('nav-link-clicked', { destination: '/skills', location: 'desktop' })}>Skills</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
+              <NavigationMenuLink href="/projects" onClick={() => posthog.capture('nav-link-clicked', { destination: '/projects', location: 'desktop' })}>Projects</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/blogs">Blogs</NavigationMenuLink>
+              <NavigationMenuLink href="/blogs" onClick={() => posthog.capture('nav-link-clicked', { destination: '/blogs', location: 'desktop' })}>Blogs</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/favorities">Favorities</NavigationMenuLink>
+              <NavigationMenuLink href="/favorities" onClick={() => posthog.capture('nav-link-clicked', { destination: '/favorities', location: 'desktop' })}>Favorities</NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

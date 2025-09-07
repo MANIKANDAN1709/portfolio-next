@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import posthog from 'posthog-js'
 
 export default function Favorities() {
     const favoriteChannels = [
@@ -139,7 +140,10 @@ export default function Favorities() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 size="sm"
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => {
+                  setSelectedCategory(category)
+                  posthog.capture('category_filter_selected', { category: category })
+                }}
                 className="transition-all duration-200"
               >
                 {category}
@@ -165,6 +169,13 @@ export default function Favorities() {
                 href={channel.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  posthog.capture('favorite_channel_clicked', {
+                    channel_name: channel.name,
+                    channel_url: channel.url,
+                    category: channel.category
+                  })
+                }}
                 className="block bg-card text-card-foreground rounded-lg border shadow-sm hover:shadow-md transition-all duration-200 p-6 hover:scale-105 cursor-pointer"
               >
                 <div className="space-y-3">
@@ -197,3 +208,4 @@ export default function Favorities() {
       </div>
     )
   }
+      

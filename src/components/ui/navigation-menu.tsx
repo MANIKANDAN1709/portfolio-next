@@ -1,3 +1,4 @@
+import posthog from "posthog-js"
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
@@ -71,6 +72,13 @@ function NavigationMenuTrigger({
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
       className={cn(navigationMenuTriggerStyle(), "group", className)}
+      onClick={(e) => {
+        const triggerText = typeof children === "string" ? children : undefined
+        posthog.capture("navigation-menu-trigger-clicked", {
+          trigger_text: triggerText,
+        })
+        props.onClick?.(e)
+      }}
       {...props}
     >
       {children}{" "}
@@ -132,6 +140,15 @@ function NavigationMenuLink({
         "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
+      onClick={(e) => {
+        const linkText =
+          typeof props.children === "string" ? props.children : undefined
+        posthog.capture("navigation-menu-link-clicked", {
+          link_url: props.href,
+          link_text: linkText,
+        })
+        props.onClick?.(e)
+      }}
       {...props}
     />
   )
