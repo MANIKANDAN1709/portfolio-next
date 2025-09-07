@@ -1,3 +1,5 @@
+"use client"
+
 import posthog from 'posthog-js'
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
